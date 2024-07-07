@@ -1,13 +1,36 @@
-// Adicione um atributo data-anime="show-down" e
-// data-anime="show-right" a todos as section's
-// com descricão dos animais.
+// Mude a cor da tela para azul e depois para vermelho a cada 2s.
+// function mudarClasse() {
+//   document.body.classList.toggle('active');
+// }
 
-// Utilizando estes atributos, adicione a classe
-// show-down ou show-right a sua respectiva section
-// assim que a mesma aparecer na tela (animacao tab)
+// setInterval(mudarClasse, 2000);
 
-// No CSS faça com que show-down anime de cima para baixo
-// e show-right continue com a mesma animação da esquerda
-// para a direita
+// Crie um cronometro utilizando o setInterval. Deve ser possível
+// iniciar, pausar e resetar (duplo clique no pausar).
+const iniciar = document.querySelector('.iniciar');
+const pausar = document.querySelector('.pausar');
+const tempo = document.querySelector('.tempo');
 
-// Substitua todas as classes js- por data atributes.
+iniciar.addEventListener('click', iniciarTempo);
+pausar.addEventListener('click', pausarTempo);
+pausar.addEventListener('dblclick', resetarTempo);
+
+let i = 0;
+let timer;
+
+function iniciarTempo() {
+  timer = setInterval(() => {
+    tempo.innerText = i++;
+  }, 100);
+  iniciar.setAttribute('disabled', '');
+}
+
+function pausarTempo() {
+  clearInterval(timer);
+  iniciar.removeAttribute('disabled');
+}
+
+function resetarTempo() {
+  tempo.innerText = 0;
+  i = 0;
+}
