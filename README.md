@@ -49,3 +49,38 @@ Este projeto é uma coleção de animações e interações desenvolvidas para s
 - Animação de elementos ao rolar a página
 
 ## Explicação
+
+O projeto consiste em várias animações que são ativadas com base em interações do usuário, como cliques ou rolagem de página. Por exemplo, a animação de tabulação permite alternar entre diferentes seções de conteúdo ao clicar em itens de menu.
+
+### Exemplo de Animação de Tabulação:
+
+```javascript
+function initTabNav() {
+  const tabMenu = document.querySelectorAll('[data-tab="menu"] li');
+  const tabContent = document.querySelectorAll('[data-tab="content"] section');
+
+  if (tabMenu.length && tabContent.length) {
+    tabContent[0].classList.add("ativo");
+
+    function activeTab(index) {
+      tabContent.forEach((section) => {
+        section.classList.remove("ativo");
+      });
+      const direcao = tabContent[index].dataset.anime;
+      tabContent[index].classList.add("ativo", direcao);
+    }
+
+    tabMenu.forEach((itemMenu, index) => {
+      itemMenu.addEventListener("click", () => {
+        activeTab(index);
+      });
+    });
+  }
+}
+
+initTabNav();
+```
+
+## Autor
+
+Desenvolvido no curso de JavaScript da Origamid®️
