@@ -1,36 +1,63 @@
-// Mude a cor da tela para azul e depois para vermelho a cada 2s.
-// function mudarClasse() {
-//   document.body.classList.toggle('active');
-// }
+const controles = document.getElementById('controles');
+const cssText = document.querySelector('.css');
+const btn = document.querySelector('.btn');
+controles.addEventListener('change', handleChange);
 
-// setInterval(mudarClasse, 2000);
-
-// Crie um cronometro utilizando o setInterval. Deve ser possível
-// iniciar, pausar e resetar (duplo clique no pausar).
-const iniciar = document.querySelector('.iniciar');
-const pausar = document.querySelector('.pausar');
-const tempo = document.querySelector('.tempo');
-
-iniciar.addEventListener('click', iniciarTempo);
-pausar.addEventListener('click', pausarTempo);
-pausar.addEventListener('dblclick', resetarTempo);
-
-let i = 0;
-let timer;
-
-function iniciarTempo() {
-  timer = setInterval(() => {
-    tempo.innerText = i++;
-  }, 100);
-  iniciar.setAttribute('disabled', '');
+const handleStyle = {
+  element: btn,
+  backgroundColor(value) {
+    this.element.style.backgroundColor = value;
+  },
+  height(value) {
+    this.element.style.height = value + 'px';
+  },
+  width(value) {
+    this.element.style.width = value + 'px';
+  },
+  texto(value) {
+    this.element.innerText = value;
+  },
+  color(value) {
+    this.element.style.color = value;
+  },
+  border(value) {
+    this.element.style.border = value;
+  },
+  borderRadius(value) {
+    this.element.style.borderRadius = value + 'px';
+  },
+  fontFamily(value) {
+    this.element.style.fontFamily = value;
+  },
+  fontSize(value) {
+    this.element.style.fontSize = value + 'rem';
+  },
 }
 
-function pausarTempo() {
-  clearInterval(timer);
-  iniciar.removeAttribute('disabled');
+function handleChange(event) {
+  const name = event.target.name;
+  const value = event.target.value;
+
+  handleStyle[name](value);
+  saveValues(name, value);
+  showCss();
 }
 
-function resetarTempo() {
-  tempo.innerText = 0;
-  i = 0;
+function saveValues(name, value) {
+  localStorage[name] = value;
+}
+
+function setValues() {
+  const properties = Object.keys(localStorage);
+  properties.forEach(propertie => {
+    handleStyle[propertie](localStorage[propertie]);
+    controles.elements[propertie].value = localStorage[propertie];
+  });
+  showCss();
+}
+
+setValues();
+
+function showCss() {
+  cssText.innerHTML = '<span>' + btn.style.cssText.split('; ').join(';</span><span>');
 }

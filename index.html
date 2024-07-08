@@ -1,59 +1,42 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Forms</title>
+  <title>Button Creator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <style>
-    label {
-      display: block;
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: bold;
-      margin-bottom: .5rem;
-      margin-top: 1rem;
-    }
-    form {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    input, textarea {
-      width: 100%;
-      box-sizing: border-box;
-      padding: .5rem;
-      border: 2px solid #000;
-      font-size: 1rem;
-      margin-bottom: .5rem;
-    }
-    textarea {
-      height: 150px;
-    }
-    .invalido {
-      border-color: red;
-    }
-  </style>
-
-  <form name="contato" id="contato">
-    <label for="nome">Nome</label>
-    <input type="text" name="nome" id="nome" required>
-    <span class="erro"></span>
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" required>
-    <span class="erro"></span>
-    <label for="mensagem">Mensagem</label>
-    <textarea name="mensagem" id="mensagem"></textarea>
-  </form>
-<script>
-  const contato = document.querySelector('#contato');
-  const dados = {};
-  function handleChange(event) {
-    dados[event.target.name] = event.target.value;
-    console.log(dados);
-  }
-  contato.addEventListener('change', handleChange);
-</script>
+  <section class="button-creator">
+    <form id="controles">
+      <label for="texto">texto</label>
+      <input type="text" name="texto" id="texto">
+      <label for="color">color</label>
+      <input type="color" name="color" id="color">
+      <label for="backgroundColor">background-color</label>
+      <input type="color" name="backgroundColor" id="backgroundColor">
+      <label for="height">height</label>
+      <input type="range" name="height" id="height" min="0" max="200">
+      <label for="width">width</label>
+      <input type="range" name="width" id="width" min="0" max="600">
+      <label for="border">border</label>
+      <input type="text" name="border" id="border">
+      <label for="borderRadius">border-radius</label>
+      <input type="range" name="borderRadius" id="borderRadius" min="0" max="20">
+      <select name="fontFamily" id="fontFamily">
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="monospace">Monospace</option>
+      </select>
+      <label for="fontSize">font-size</label>
+      <input type="number" name="fontSize" id="fontSize">
+    </form>
+    <section class="resultado">
+      <button class="btn">Clique</button>
+      <pre><code class="css"></code></pre>
+    </section>
+  </section>
+  <script src="script.js"></script>
 </body>
 </html>
