@@ -2,11 +2,7 @@
 
 Este projeto consiste em uma série de animações implementadas com JavaScript para melhorar a interatividade e a experiência do usuário em uma página web.
 
-## Interface
-
-<div align="center">
-  <img src="img/logo.png" alt="Imagem do Projeto" width="100">
-</div>
+<br></br>
 
 ## Sumário
 
@@ -17,6 +13,8 @@ Este projeto consiste em uma série de animações implementadas com JavaScript 
 - [Explicação](#explicação)
 - [Como Usar](#como-usar)
 - [Autor](#autor)
+
+<br></br>
 
 ## Tecnologias Utilizadas
 
@@ -32,13 +30,19 @@ Este projeto consiste em uma série de animações implementadas com JavaScript 
   </div>
 </div>
 
+<br></br>
+
 ## Status
 
 ![Concluído](http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge)
 
+<br></br>
+
 ## Descrição
 
 Este projeto é uma coleção de animações e interações desenvolvidas para serem usadas em páginas web. Utiliza JavaScript para manipular estilos CSS e criar animações dinâmicas.
+
+<br></br>
 
 ## Funcionalidades
 
@@ -48,9 +52,13 @@ Este projeto é uma coleção de animações e interações desenvolvidas para s
 - Scroll suave para links internos
 - Animação de elementos ao rolar a página
 
+<br></br>
+
 ## Explicação
 
 O projeto consiste em várias animações que são ativadas com base em interações do usuário, como cliques ou rolagem de página. Por exemplo, a animação de tabulação permite alternar entre diferentes seções de conteúdo ao clicar em itens de menu.
+
+<br></br>
 
 ### Exemplo de Animação de Tabulação:
 
@@ -80,6 +88,8 @@ function initTabNav() {
 
 initTabNav();
 ```
+
+<br></br>
 
 ## Autor
 
